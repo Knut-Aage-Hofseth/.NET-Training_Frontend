@@ -27,7 +27,6 @@ jobs:
       run: dotnet run --project  WebApp/WebApp/WebApp.csproj
 
   playwright:
-    needs: front-end
 
     runs-on: ubuntu-latest
 
