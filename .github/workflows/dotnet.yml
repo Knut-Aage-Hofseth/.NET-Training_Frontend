@@ -33,7 +33,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      with: Unicus-International/.NET-Training_Playwright-Tests
+      with:
+        repository: unicus-international/.net-training_playwright-tests
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
