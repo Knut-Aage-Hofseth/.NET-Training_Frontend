@@ -22,9 +22,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore WebApp/WebApp/WebApp.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build WebApp/WebApp/WebApp.csproj --no-restore
     - name: Run
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet run WebApp/WebApp/WebApp.csproj
 
   playwright:
     needs: front-end
