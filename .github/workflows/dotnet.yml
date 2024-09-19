@@ -41,7 +41,7 @@ jobs:
     - name: Build
       run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Playwright
-      run: pwsh PlaywrightTests/bin/Debug/netX/playwright.ps1 install   
+      run: pwsh PlaywrightTests/bin/Debug/net8.0/playwright.ps1 install   
     - name: Test
       run: dotnet test PlaywrightTests/PlaywrightTests.csproj --no-build --verbosity normal
       
