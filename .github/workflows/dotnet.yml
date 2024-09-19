@@ -39,7 +39,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore PlaywrightTests/PlaywrightTests.csproj  
     - name: Build
-      run: dotnet build .NET-Training_Playwright-Tests/PlaywrightTests/PlaywrightTests.csproj  --no-restore
+      run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
       
