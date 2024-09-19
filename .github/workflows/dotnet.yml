@@ -24,7 +24,7 @@ jobs:
     - name: Build
       run: dotnet build WebApp/WebApp/WebApp.csproj --no-restore
     - name: Run
-      run: dotnet run WebApp/WebApp/WebApp.csproj
+      run: dotnet run --project  WebApp/WebApp/WebApp.csproj
 
   playwright:
     needs: front-end
