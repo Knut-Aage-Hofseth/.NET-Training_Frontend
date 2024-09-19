@@ -23,11 +23,9 @@ jobs:
       run: dotnet restore WebApp/WebApp/WebApp.csproj
     - name: Build
       run: dotnet build WebApp/WebApp/WebApp.csproj --no-restore
-    - name: Run
-      run: dotnet run --project  WebApp/WebApp/WebApp.csproj
 
   playwright:
-
+    needs: front-end
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +37,7 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore ./.NET-Training_Playwright-Tests/PlaywrightTests/PlaywrightTests.csproj  
+      run: dotnet restore .NET-Training_Playwright-Tests/PlaywrightTests/PlaywrightTests.csproj  
     - name: Build
       run: dotnet build .NET-Training_Playwright-Tests/PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Test
