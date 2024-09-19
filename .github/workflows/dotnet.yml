@@ -41,5 +41,5 @@ jobs:
     - name: Build
       run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test PlaywrightTests/PlaywrightTests.csproj --no-build --verbosity normal
       
