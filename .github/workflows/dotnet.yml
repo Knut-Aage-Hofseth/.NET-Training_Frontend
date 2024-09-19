@@ -26,7 +26,7 @@ jobs:
 
   playwright:
     needs: front-end
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -40,6 +40,8 @@ jobs:
       run: dotnet restore PlaywrightTests/PlaywrightTests.csproj  
     - name: Build
       run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
+    - name: Playwright
+      run: pwsh PlaywrightTests/bin/Debug/netX/playwright.ps1 install   
     - name: Test
       run: dotnet test PlaywrightTests/PlaywrightTests.csproj --no-build --verbosity normal
       
