@@ -39,7 +39,7 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore .NET-Training_Playwright-Tests/PlaywrightTests/PlaywrightTests.csproj 
+      run: dotnet restore ./.NET-Training_Playwright-Tests/PlaywrightTests/PlaywrightTests.csproj  
     - name: Build
       run: dotnet build .NET-Training_Playwright-Tests/PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Test
