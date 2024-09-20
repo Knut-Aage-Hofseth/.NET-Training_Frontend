@@ -23,6 +23,13 @@ jobs:
       run: dotnet restore WebApp/WebApp/WebApp.csproj
     - name: Build
       run: dotnet build WebApp/WebApp/WebApp.csproj --no-restore
+    - uses: actions/checkout@v4
+      with:
+        repository: unicus-international/.net-training_playwright-tests
+    - name: Restore dependencies
+      run: dotnet restore PlaywrightTests/PlaywrightTests.csproj  
+    - name: Build
+      run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
 
   playwright:
     needs: front-end
