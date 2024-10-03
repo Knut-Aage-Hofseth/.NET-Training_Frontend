@@ -4,6 +4,7 @@
 name: .NET
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [ "main" ]
 
@@ -19,28 +20,36 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore WebApp/WebApp/WebApp.csproj
     - name: Build
-      run: dotnet build --no-restore
-    - name: Run
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build WebApp/WebApp/WebApp.csproj --no-restore
+    - name: Go to Image
+      run: cd WebApp/WebApp/
+    - name: Check
+      run: ls -l
+    - name: Build Image
+      run: docker build -t knutaagehofsethunicus/frontend ./WebApp/WebApp/
+    - name: Run Image
+      run: docker run knutaagehofsethunicus/frontend
 
   playwright:
     needs: front-end
-
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
-      with: Unicus-International/.NET-Training_Playwright-Tests
+      with:
+        repository: unicus-international/.net-training_playwright-tests
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore PlaywrightTests/PlaywrightTests.csproj  
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
+    - name: Playwright
+      run: pwsh PlaywrightTests/bin/Debug/net8.0/playwright.ps1 install   
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test PlaywrightTests/PlaywrightTests.csproj --no-build --verbosity normal
       
