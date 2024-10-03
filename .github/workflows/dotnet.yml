@@ -30,7 +30,7 @@ jobs:
     - name: Build Image
       run: docker build -t knutaagehofsethunicus/frontend ./WebApp/WebApp/
     - name: Run Image
-      run: ducker run knutaagehofsethunicus/frontend
+      run: docker run knutaagehofsethunicus/frontend
 
   playwright:
     needs: front-end
