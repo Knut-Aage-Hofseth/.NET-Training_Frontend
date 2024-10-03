@@ -31,9 +31,11 @@ jobs:
     - name: Build
       run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Go to Image
-      run: cd WebApp/WebApp
+      run: cd WebApp/WebApp/
     - name: Build Image
       run: docker build -t knutaagehofsethunicus/frontend .
+    - name: Run Inage
+      run: ducker run knutaagehofsethunicus/frontend
 
   playwright:
     needs: front-end
