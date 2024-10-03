@@ -30,6 +30,8 @@ jobs:
       run: dotnet restore PlaywrightTests/PlaywrightTests.csproj  
     - name: Build
       run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
+    - name: Go to Image
+      run: cd WebApp/WebApp
     - name: Build Image
       run: docker build -t knutaagehofsethunicus/frontend .
 
