@@ -28,7 +28,7 @@ jobs:
     - name: Check
       run: ls -l
     - name: Build Image
-      run: docker build -t knutaagehofsethunicus/frontend .
+      run: docker build -t knutaagehofsethunicus/frontend ./WebApp/WebApp/
     - name: Run Image
       run: ducker run knutaagehofsethunicus/frontend
 
