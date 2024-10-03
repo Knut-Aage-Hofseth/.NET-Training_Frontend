@@ -23,18 +23,11 @@ jobs:
       run: dotnet restore WebApp/WebApp/WebApp.csproj
     - name: Build
       run: dotnet build WebApp/WebApp/WebApp.csproj --no-restore
-    - uses: actions/checkout@v4
-      with:
-        repository: unicus-international/.net-training_playwright-tests
-    - name: Restore dependencies
-      run: dotnet restore PlaywrightTests/PlaywrightTests.csproj  
-    - name: Build
-      run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Go to Image
-      run: ls -l
+      run: cd WebApp/WebApp/
     - name: Build Image
       run: docker build -t knutaagehofsethunicus/frontend .
-    - name: Run Inage
+    - name: Run Image
       run: ducker run knutaagehofsethunicus/frontend
 
   playwright:
