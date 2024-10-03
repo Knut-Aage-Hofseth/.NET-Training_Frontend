@@ -31,7 +31,7 @@ jobs:
     - name: Build
       run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Build Image
-      run: docker build -t knutaagehofsethunicus/frontend ./WebApp/WebApp/Dockerfile
+      run: docker build -t knutaagehofsethunicus/frontend ./WebApp/WebApp/
 
   playwright:
     needs: front-end
