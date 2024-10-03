@@ -31,7 +31,7 @@ jobs:
     - name: Build
       run: dotnet build PlaywrightTests/PlaywrightTests.csproj  --no-restore
     - name: Go to Image
-      run: cd WebApp/WebApp/
+      run: ls -l
     - name: Build Image
       run: docker build -t knutaagehofsethunicus/frontend .
     - name: Run Inage
