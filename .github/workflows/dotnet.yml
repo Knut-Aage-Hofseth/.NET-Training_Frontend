@@ -25,6 +25,8 @@ jobs:
       run: dotnet build WebApp/WebApp/WebApp.csproj --no-restore
     - name: Go to Image
       run: cd WebApp/WebApp/
+    - name: Check
+      run: ls -l
     - name: Build Image
       run: docker build -t knutaagehofsethunicus/frontend .
     - name: Run Image
